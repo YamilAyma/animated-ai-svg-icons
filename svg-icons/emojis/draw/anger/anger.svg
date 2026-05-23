@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <!-- 
+      Reusable compound path defining the four symmetrical quadrants of the mark.
+      Mapped outward from the center (50, 50) to create a subtle bursting gap.
+    -->
+    <g id="vein-cross">
+      <!-- Top-Right -->
+      <path d="M 75,12 L 72,26 Q 70,34 78,38 L 92,42" />
+      <!-- Top-Left -->
+      <path d="M 25,12 L 28,26 Q 30,34 22,38 L 8,42" />
+      <!-- Bottom-Left -->
+      <path d="M 25,88 L 28,74 Q 30,66 22,62 L 8,58" />
+      <!-- Bottom-Right -->
+      <path d="M 75,88 L 72,74 Q 70,66 78,62 L 92,58" />
+    </g>
+
+    <style>
+      /* Scoped variables for dynamic customizer styling */
+      svg {
+        --primary-color: #1A0D00; /* Dark Outline Border */
+        --accent-color: #E60012; /* Bright Red Inner Fill */
+        
+        /* Layered stroke sizing to simulate filled shapes with thick borders */
+        --outline-width: 17px; 
+        --inner-width: 7px; 
+        --stroke-width: 5px; /* Default outline size fallback */
+        
+        /* Stepped Animation Timing */
+        --animation-duration: 1.6s; /* Fast, aggressive loop cycle */
+        --curve: linear; /* Linear timing for stepped frames */
+        --animation-loop: infinite; 
+        --animation-direction: normal; 
+      }
+
+      /* 
+        Base shape instances.
+        NOTE: 'vector-effect: non-scaling-stroke' is intentionally OMITTED here.
+        Because this effect relies on precise concentric stroke overlays to create 
+        a single visual shape, the strokes must proportionally scale together 
+        during the CSS transform to prevent visual decoupling or gaps.
+      */
+      .vein-outline {
+        fill: none;
+        stroke: var(--primary-color);
+        stroke-width: var(--outline-width);
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .vein-inner {
+        fill: none;
+        stroke: var(--accent-color);
+        stroke-width: var(--inner-width);
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      /* Main container handling the frame-based throbbing sequence */
+      .animated-vein {
+        transform-origin: 50px 50px;
+        animation-name: stepped-anger-pulse;
+        animation-duration: var(--animation-duration);
+        /* Linear timing ensures strictly bound fractional keyframes do not interpolate */
+        animation-timing-function: var(--curve); 
+        animation-iteration-count: var(--animation-loop);
+        animation-direction: var(--animation-direction);
+      }
+
+      /* 
+        Strict fractional keyframes (0.01% jumps) enforce an instant, stepped 
+        render block, effectively simulating low-framerate cel animation.
+      */
+      @keyframes stepped-anger-pulse {
+        /* Blank State */
+        0%, 9.99% { 
+          opacity: 0; 
+          transform: scale(0.4) rotate(0deg); 
+        }
+        
+        /* Major Pop In */
+        10%, 19.99% { 
+          opacity: 1; 
+          transform: scale(1.15) rotate(4deg); 
+        }
+        
+        /* Base Settle */
+        20%, 39.99% { 
+          opacity: 1; 
+          transform: scale(1) rotate(0deg); 
+        }
+        
+        /* Thump 1 */
+        40%, 49.99% { 
+          opacity: 1; 
+          transform: scale(1.12) rotate(-3deg); 
+        }
+        
+        /* Base Settle */
+        50%, 69.99% { 
+          opacity: 1; 
+          transform: scale(1) rotate(0deg); 
+        }
+        
+        /* Thump 2 */
+        70%, 79.99% { 
+          opacity: 1; 
+          transform: scale(1.15) rotate(3deg); 
+        }
+        
+        /* Base Settle */
+        80%, 89.99% { 
+          opacity: 1; 
+          transform: scale(1) rotate(0deg); 
+        }
+        
+        /* Exit / Hide */
+        90%, 100% { 
+          opacity: 0; 
+          transform: scale(0.4) rotate(0deg); 
+        }
+      }
+    </style>
+  </defs>
+
+  <!-- Centralized group applying the stepped animation and rendering the overlapping stroke layers -->
+  <g class="animated-vein">
+    <!-- Back layer acting as the thick outer contour -->
+    <use href="#vein-cross" class="vein-outline" />
+    <!-- Front layer acting as the solid red internal body -->
+    <use href="#vein-cross" class="vein-inner" />
+  </g>
+</svg>
