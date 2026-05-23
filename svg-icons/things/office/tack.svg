@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <style>
+      /* Scoped custom variables for easy parsing and real-time customizer theming */
+      svg {
+        --primary-color: #111111; /* Dark Outline Border */
+        --accent-color: #E3342F; /* Main Plastic Red */
+        --shadow-color: #C62828; /* Inner Depth / Rim Red */
+        --metal-color: #D3DBDF; /* Needle Silver */
+        --stroke-width: 5.5px; /* Thick, cute cartoon outline */
+        
+        /* Animation Timing */
+        --animation-duration: 2.2s; /* Duration of the full attention cycle */
+        --curve: cubic-bezier(0.34, 1.56, 0.64, 1); /* Elastic and bouncy curve */
+        --animation-loop: infinite; /* Perpetual cycle */
+        --animation-direction: normal; /* Play Direction */
+      }
+
+      /* Base geometric styling */
+      .pin-element {
+        stroke: var(--primary-color);
+        stroke-width: var(--stroke-width);
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        vector-effect: non-scaling-stroke;
+      }
+
+      /* Material color classes mapping to CSS variables */
+      .fill-metal { fill: var(--metal-color); }
+      .fill-plastic { fill: var(--accent-color); }
+      .fill-shadow { fill: var(--shadow-color); }
+
+      /* 
+        Main wrapper handling the attention-grabbing wiggle animation.
+        The transform-origin is perfectly mapped to the global coordinates (19px, 83px) 
+        where the needle tip rests after the static 45-degree rotation is applied below. 
+        This ensures the pin firmly pivots exactly on its sharp point!
+      */
+      .attention-wiggle {
+        transform-origin: 19px 83px;
+        animation-name: hey-look-at-me;
+        animation-duration: var(--animation-duration);
+        animation-timing-function: var(--curve);
+        animation-iteration-count: var(--animation-loop);
+        animation-direction: var(--animation-direction);
+      }
+
+      /* Keyframes simulating an elastic, ringing "bell" shake that asks for attention */
+      @keyframes hey-look-at-me {
+        0%, 60%, 100% {
+          transform: rotate(0deg) scale(1);
+        }
+        10% {
+          transform: rotate(-14deg) scale(1.06);
+        }
+        20% {
+          transform: rotate(12deg) scale(1.04);
+        }
+        30% {
+          transform: rotate(-8deg) scale(1.02);
+        }
+        40% {
+          transform: rotate(4deg) scale(1.01);
+        }
+        50% {
+          transform: rotate(0deg) scale(1);
+        }
+      }
+    </style>
+  </defs>
+
+  <!-- Animation wrapper actively pivoting on the needle point -->
+  <g class="attention-wiggle">
+    
+    <!-- 
+      Inner group logically drawn straight up-and-down, then statically rotated by 45deg.
+      Center of rotation (50, 52) cleanly places the pin tip in the bottom-left quadrant.
+    -->
+    <g transform="rotate(45, 50, 52)">
+      
+      <!-- 1. Needle Metal (Drawn back-most) -->
+      <polygon class="pin-element fill-metal" points="42,65 58,65 50,96" />
+      
+      <!-- 2. Central Stem -->
+      <rect class="pin-element fill-plastic" x="36" y="20" width="28" height="42" />
+      
+      <!-- 3. Bottom Rounded Bumper -->
+      <rect class="pin-element fill-plastic" x="25" y="55" width="50" height="14" rx="7" />
+      
+      <!-- 4. Top Thumb Pad Base -->
+      <ellipse class="pin-element fill-plastic" cx="50" cy="20" rx="34" ry="12" />
+      
+      <!-- 5. Top Thumb Pad Inner Depth Rim -->
+      <ellipse class="pin-element fill-shadow" cx="50" cy="21" rx="22" ry="5" />
+      
+    </g>
+  </g>
+</svg>
