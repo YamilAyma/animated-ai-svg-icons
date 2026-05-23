@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <style>
+      /* Scoped variables mapped for external parsing and dynamic color theming */
+      svg {
+        --primary-color: #0F0F11; /* Main thick outline and eyes */
+        --hood-color: #38383B; /* Dark grey back/head */
+        --belly-color: #FFFFFF; /* White face and belly */
+        --beak-color: #FFF033; /* Bright yellow beak */
+        --foot-color: #1A1A1D; /* Dark, almost black feet */
+        
+        --stroke-width: 4.5px; /* Thick, cute chibi contour */
+        
+        /* Animation Timings */
+        --animation-duration: 2.5s; /* Cycle speed */
+        --curve: ease-in-out; /* Smooth natural motion */
+        --animation-loop: infinite; 
+        --animation-direction: normal; 
+      }
+
+      /* Base geometric shape styles */
+      .outline-base {
+        stroke: var(--primary-color);
+        stroke-width: var(--stroke-width);
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        vector-effect: non-scaling-stroke;
+      }
+
+      /* Granular Fill Classes */
+      .fill-white { fill: var(--belly-color); }
+      .fill-hood { fill: var(--hood-color); }
+      .fill-beak { fill: var(--beak-color); }
+      .fill-dark { fill: var(--foot-color); }
+      .fill-black { fill: var(--primary-color); }
+
+      /* No-stroke helper for the inner face mask */
+      .no-stroke {
+        stroke: none;
+      }
+
+      /* 
+        1. Body Bobbing Animation
+        Gently moves the whole penguin body up and down to simulate breathing/bouncing.
+        The feet are excluded from this group so they stay firmly planted!
+      */
+      .body-bob {
+        transform-origin: 50px 85px;
+        animation-name: gentle-bounce;
+        animation-duration: var(--animation-duration);
+        animation-timing-function: var(--curve);
+        animation-iteration-count: var(--animation-loop);
+        animation-direction: var(--animation-direction);
+      }
+
+      /* 
+        2. Friendly Waving Arm Animation
+        Pivots explicitly at the shoulder joint coordinate (68px, 62px)
+      */
+      .waving-arm {
+        transform-origin: 68px 62px;
+        animation-name: friendly-wave;
+        animation-duration: var(--animation-duration);
+        animation-timing-function: var(--curve);
+        animation-iteration-count: var(--animation-loop);
+        animation-direction: var(--animation-direction);
+      }
+
+      /* 
+        3. Head Tilt
+        Static structural tilt to perfectly capture the cute, curious Chibi posture 
+      */
+      .head-group {
+        transform-origin: 50px 45px;
+        transform: rotate(4deg);
+      }
+
+      /* --- Keyframes --- */
+      @keyframes gentle-bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-2px); }
+      }
+
+      @keyframes friendly-wave {
+        0% { transform: rotate(0deg); }
+        15% { transform: rotate(45deg); }
+        30% { transform: rotate(-5deg); }
+        45% { transform: rotate(35deg); }
+        60% { transform: rotate(-5deg); }
+        75% { transform: rotate(15deg); }
+        100% { transform: rotate(0deg); }
+      }
+    </style>
+  </defs>
+
+  <!-- Animated Bobbing Container (Excludes Feet) -->
+  <g class="body-bob">
+    
+    <!-- Left Flipper (Resting outwards) -->
+    <!-- Drawn back-most so the body stroke overlaps it naturally -->
+    <path class="outline-base fill-white" 
+          d="M 33 62 Q 12 68 18 78 Q 28 80 38 68 Z" />
+
+    <!-- Right Flipper (Waving!) -->
+    <g class="waving-arm">
+      <!-- Fin path extending outward and upward -->
+      <path class="outline-base fill-white" 
+            d="M 66 60 Q 88 45 92 50 Q 88 72 68 68 Z" />
+    </g>
+
+    <!-- Main Squat Body / Belly -->
+    <path class="outline-base fill-white" 
+          d="M 32 55 C 20 80, 35 88, 50 88 C 65 88, 80 80, 68 55 Z" />
+
+    <!-- Tilted Head Group -->
+    <!-- Positioned to naturally overlap and hide the top of the body/arms -->
+    <g class="head-group">
+      
+      <!-- Dark Grey Hood Outline -->
+      <path class="outline-base fill-hood" 
+            d="M 22 42 C 22 10, 78 10, 78 42 C 78 68, 65 72, 50 72 C 35 72, 22 68, 22 42 Z" />
+
+      <!-- White Heart-shaped Face Mask -->
+      <!-- Fits cleanly inside the hood without a black stroke -->
+      <path class="no-stroke fill-white" 
+            d="M 50 69 C 25 69, 22 35, 32 28 C 40 22, 48 28, 50 36 C 52 28, 60 22, 68 28 C 78 35, 75 69, 50 69 Z" />
+
+      <!-- Left Eye -->
+      <circle class="fill-black" cx="39" cy="43" r="4.2" />
+      
+      <!-- Right Eye -->
+      <circle class="fill-black" cx="61" cy="43" r="4.2" />
+
+      <!-- Yellow Triangle Beak -->
+      <path class="outline-base fill-beak" 
+            d="M 46 50 L 54 50 L 50 56 Z" style="stroke-width: 3.5px;" />
+            
+    </g>
+  </g>
+
+  <!-- Static Feet placed outside the bobbing group to stay grounded -->
+  <!-- Left Foot -->
+  <path class="outline-base fill-dark" 
+        d="M 33 86 C 28 86, 32 94, 45 94 C 48 94, 46 86, 45 86 Z" />
+        
+  <!-- Right Foot -->
+  <path class="outline-base fill-dark" 
+        d="M 67 86 C 72 86, 68 94, 55 94 C 52 94, 54 86, 55 86 Z" />
+
+</svg>
