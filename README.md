@@ -1,10 +1,10 @@
-# ✨ Animated Nice Icons ✨
+# ✨ Nice AI-Generated SVG Icons ✨
 
 <div align="center">
   <p align="center">
     <img src="svg-icons/particles/flowers-falling.svg" width="200" alt="Hero Banner Animation" />
   </p>
-  <h3>A curated collection of gorgeous, micro-animated SVG icons designed with AI and polished by hand.</h3>
+  <h3>A curated collection of gorgeous, micro-animated SVG icons designed with AI </h3>
   <p>
     Perfect for modern web apps, landing pages, interactive dashboards, and creative decorations (include Markdown). Clean vectors, customizable styles, and perpetual CSS animations.
   </p>
@@ -45,6 +45,7 @@ Welcome to the live gallery! Below is the grid of all currently available animat
 Lovely animated expressions, alerts, and badges with spring-bouncing mechanics and hand-drawn outline aesthetics.
 
 <!-- EMOJIS_TABLE_START -->
+
 <table>
   <tr>
     <td align="center" width="250" style="padding: 20px; border: 1px solid #f0f0f0;">
@@ -74,6 +75,7 @@ Lovely animated expressions, alerts, and badges with spring-bouncing mechanics a
 Beautiful drawn-in and erased-out line animations simulating chalk, crayon, or brush gestures with high organic texture.
 
 <!-- LINES_TABLE_START -->
+
 <table>
   <tr>
     <td align="center" width="250" style="padding: 20px; border: 1px solid #f0f0f0;">
@@ -98,6 +100,7 @@ Beautiful drawn-in and erased-out line animations simulating chalk, crayon, or b
 Magical bursts, sunbursts, falling stars, and cascading elements to add premium micro-interactions to your UI.
 
 <!-- PARTICLES_TABLE_START -->
+
 <table>
   <tr>
     <td align="center" width="250" style="padding: 20px; border: 1px solid #f0f0f0;">
