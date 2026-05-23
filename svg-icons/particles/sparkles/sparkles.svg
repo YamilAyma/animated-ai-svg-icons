@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <style>
+      /* Scoped custom variables for dynamic customization */
+      svg {
+        --primary-color: #FBD34D; /* Main Bright Yellow */
+        --glow-color: rgba(251, 211, 77, 0.35); /* Soft rainy/wet bloom texture */
+        
+        --stroke-width: 4.5px; /* Core hand-drawn outline */
+        --glow-width: 11px; /* Outer wet bleed thickness */
+        
+        /* Anime-style pop and fade timings */
+        --animation-duration: 3s; /* Full cycle duration */
+        --curve: cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Snappy elastic anime pop */
+        --animation-loop: infinite; 
+        --animation-direction: normal; 
+      }
+
+      /* Core aesthetic layers */
+      .sparkle-glow {
+        stroke: var(--glow-color);
+        stroke-width: var(--glow-width);
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+        vector-effect: non-scaling-stroke;
+      }
+
+      .sparkle-base {
+        stroke: var(--primary-color);
+        stroke-width: var(--stroke-width);
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+        vector-effect: non-scaling-stroke;
+      }
+
+      /* 
+        Animation wrappers mapping the precise local transform-origin to 0,0 
+        since they are translated by their parent groups.
+      */
+      .sparkle-anim {
+        transform-origin: 0px 0px;
+        animation-name: anime-twinkle;
+        animation-duration: var(--animation-duration);
+        animation-timing-function: var(--curve);
+        animation-iteration-count: var(--animation-loop);
+        animation-direction: var(--animation-direction);
+      }
+
+      /* Staggered negative delays ensure the sequence is running on initial paint */
+      .s-major { animation-delay: -0.2s; }
+      .s-minor-left { animation-delay: -1.2s; }
+      .s-minor-right { animation-delay: -2.2s; }
+
+      /* 
+        Keyframes designed for an anime "cel" pop-in and a soft watery fade-out.
+      */
+      @keyframes anime-twinkle {
+        0% { 
+          opacity: 0; 
+          transform: scale(0.2) rotate(-15deg); 
+        }
+        15% { 
+          opacity: 1; 
+          transform: scale(1.15) rotate(10deg); 
+        }
+        30% { 
+          opacity: 1; 
+          transform: scale(0.95) rotate(0deg); 
+        }
+        50% { 
+          opacity: 0; 
+          transform: scale(0.4) rotate(15deg); 
+        }
+        100% { 
+          opacity: 0; 
+          transform: scale(0.4) rotate(15deg); 
+        }
+      }
+    </style>
+
+    <!-- 
+      Reusable Sparkle Geometry 
+      Paths are drawn with slight Bezier (Q) curves rather than straight lines (L) 
+      to simulate a slightly imperfect, organic "wet brush" or rainy drop texture.
+    -->
+    <g id="sparkle-paths">
+      <!-- Top Dash -->
+      <path d="M 0,-5 Q 1.5,-11 0,-17" />
+      <!-- Bottom Dash -->
+      <path d="M 0,5 Q -1.5,11 0,17" />
+      <!-- Left Dash -->
+      <path d="M -5,0 Q -11,-1.5 -17,0" />
+      <!-- Right Dash -->
+      <path d="M 5,0 Q 11,1.5 17,0" />
+    </g>
+  </defs>
+
+  <!-- 
+    1. Center-Top Sparkle (Largest) 
+  -->
+  <g transform="translate(50, 32) scale(1)">
+    <g class="sparkle-anim s-major">
+      <use href="#sparkle-paths" class="sparkle-glow" />
+      <use href="#sparkle-paths" class="sparkle-base" />
+    </g>
+  </g>
+
+  <!-- 
+    2. Left-Mid Sparkle (Medium) 
+  -->
+  <g transform="translate(28, 54) scale(0.8)">
+    <g class="sparkle-anim s-minor-left">
+      <use href="#sparkle-paths" class="sparkle-glow" />
+      <use href="#sparkle-paths" class="sparkle-base" />
+    </g>
+  </g>
+
+  <!-- 
+    3. Right-Bottom Sparkle (Smallest) 
+  -->
+  <g transform="translate(70, 72) scale(0.65)">
+    <g class="sparkle-anim s-minor-right">
+      <use href="#sparkle-paths" class="sparkle-glow" />
+      <use href="#sparkle-paths" class="sparkle-base" />
+    </g>
+  </g>
+
+</svg>
