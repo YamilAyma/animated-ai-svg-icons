@@ -6,6 +6,7 @@
   "scripts": {
     "validate": "node scripts/validate-icons.js",
     "showcase": "node scripts/update-readme.js",
+    "commit": "node scripts/commit-icons.js",
     "test": "npm run validate"
   },
   "keywords": [
