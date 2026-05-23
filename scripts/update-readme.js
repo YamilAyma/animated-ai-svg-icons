@@ -19,6 +19,21 @@ const CATEGORIES = {
     dir: path.join(ROOT_DIR, 'svg-icons/particles'),
     startTag: '<!-- PARTICLES_TABLE_START -->',
     endTag: '<!-- PARTICLES_TABLE_END -->'
+  },
+  animals: {
+    dir: path.join(ROOT_DIR, 'svg-icons/animals'),
+    startTag: '<!-- ANIMALS_TABLE_START -->',
+    endTag: '<!-- ANIMALS_TABLE_END -->'
+  },
+  plants: {
+    dir: path.join(ROOT_DIR, 'svg-icons/plants'),
+    startTag: '<!-- PLANTS_TABLE_START -->',
+    endTag: '<!-- PLANTS_TABLE_END -->'
+  },
+  things: {
+    dir: path.join(ROOT_DIR, 'svg-icons/things'),
+    startTag: '<!-- THINGS_TABLE_START -->',
+    endTag: '<!-- THINGS_TABLE_END -->'
   }
 };
 
