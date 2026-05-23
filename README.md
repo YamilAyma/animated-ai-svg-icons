@@ -48,6 +48,12 @@ Lovely animated expressions, alerts, and badges with spring-bouncing mechanics a
 <table>
   <tr>
     <td align="center" width="250" style="padding: 20px; border: 1px solid #f0f0f0;">
+      <img src="svg-icons/emojis/check-1.svg" width="100" height="100" alt="check-1.svg" /><br />
+      <br />
+      <strong>check-1.svg</strong><br />
+      <a href="svg-icons/emojis/check-1.svg" download>💾 Download SVG</a>
+    </td>
+    <td align="center" width="250" style="padding: 20px; border: 1px solid #f0f0f0;">
       <img src="svg-icons/emojis/check.svg" width="100" height="100" alt="check.svg" /><br />
       <br />
       <strong>check.svg</strong><br />
@@ -59,12 +65,16 @@ Lovely animated expressions, alerts, and badges with spring-bouncing mechanics a
       <strong>exclamation.svg</strong><br />
       <a href="svg-icons/emojis/exclamation.svg" download>💾 Download SVG</a>
     </td>
+  </tr>
+  <tr>
     <td align="center" width="250" style="padding: 20px; border: 1px solid #f0f0f0;">
       <img src="svg-icons/emojis/star.svg" width="100" height="100" alt="star.svg" /><br />
       <br />
       <strong>star.svg</strong><br />
       <a href="svg-icons/emojis/star.svg" download>💾 Download SVG</a>
     </td>
+    <td align="center" width="250" style="padding: 20px; border: 1px solid #f0f0f0;"></td>
+    <td align="center" width="250" style="padding: 20px; border: 1px solid #f0f0f0;"></td>
   </tr>
 </table>
 <!-- EMOJIS_TABLE_END -->
@@ -77,6 +87,32 @@ Beautiful drawn-in and erased-out line animations simulating chalk, crayon, or b
 <table>
   <tr>
     <td align="center" width="250" style="padding: 20px; border: 1px solid #f0f0f0;">
+      <img src="svg-icons/lines/arrows/solid/right/arrow-solid-right-1.svg" width="100" height="100" alt="arrow-solid-right-1.svg" /><br />
+      <br />
+      <strong>arrow-solid-right-1.svg</strong><br />
+      <a href="svg-icons/lines/arrows/solid/right/arrow-solid-right-1.svg" download>💾 Download SVG</a>
+    </td>
+    <td align="center" width="250" style="padding: 20px; border: 1px solid #f0f0f0;">
+      <img src="svg-icons/lines/arrows/artistic/right/artistic-arrow-right-1.svg" width="100" height="100" alt="artistic-arrow-right-1.svg" /><br />
+      <br />
+      <strong>artistic-arrow-right-1.svg</strong><br />
+      <a href="svg-icons/lines/arrows/artistic/right/artistic-arrow-right-1.svg" download>💾 Download SVG</a>
+    </td>
+    <td align="center" width="250" style="padding: 20px; border: 1px solid #f0f0f0;">
+      <img src="svg-icons/lines/arrows/curvy-arrows/left/curvy-arrow-left-1.svg" width="100" height="100" alt="curvy-arrow-left-1.svg" /><br />
+      <br />
+      <strong>curvy-arrow-left-1.svg</strong><br />
+      <a href="svg-icons/lines/arrows/curvy-arrows/left/curvy-arrow-left-1.svg" download>💾 Download SVG</a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="250" style="padding: 20px; border: 1px solid #f0f0f0;">
+      <img src="svg-icons/lines/arrows/curvy-arrows/right/curvy-arrow-right-1.svg" width="100" height="100" alt="curvy-arrow-right-1.svg" /><br />
+      <br />
+      <strong>curvy-arrow-right-1.svg</strong><br />
+      <a href="svg-icons/lines/arrows/curvy-arrows/right/curvy-arrow-right-1.svg" download>💾 Download SVG</a>
+    </td>
+    <td align="center" width="250" style="padding: 20px; border: 1px solid #f0f0f0;">
       <img src="svg-icons/lines/line-1.svg" width="100" height="100" alt="line-1.svg" /><br />
       <br />
       <strong>line-1.svg</strong><br />
@@ -88,7 +124,6 @@ Beautiful drawn-in and erased-out line animations simulating chalk, crayon, or b
       <strong>line-2.svg</strong><br />
       <a href="svg-icons/lines/line-2.svg" download>💾 Download SVG</a>
     </td>
-    <td align="center" width="250" style="padding: 20px; border: 1px solid #f0f0f0;"></td>
   </tr>
 </table>
 <!-- LINES_TABLE_END -->

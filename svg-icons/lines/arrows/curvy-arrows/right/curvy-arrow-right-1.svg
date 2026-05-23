@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <!-- Mask to sequentially reveal the dashed line without distorting the dash texture -->
+    <mask id="draw-mask" maskUnits="userSpaceOnUse">
+      <path class="mask-line" d="M 25 15 C 15 50, 30 80, 50 80 C 65 80, 65 55, 50 55 C 35 55, 35 80, 75 85" fill="none" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+    </mask>
+
+    <style>
+      /* Scoped Custom Variables for Dynamic Customization */
+      svg {
+        /* Palette */
+        --primary-color: #0E0E0E; /* Solid Black/Dark Grey */
+        
+        /* Line and Texture Properties*/
+        --stroke-width: 3px; /* Thickness of the dashed line */
+        --dash-pattern: 5 8; /* Pattern to create the hand-drawn dashed texture */
+        
+        /* Animation Timing */
+        --animation-duration: 4.5s; /* Pacing for a relaxed, nice transition */
+        --curve: cubic-bezier(0.45, 0, 0.15, 1); /* Extremely smooth start and stop */
+        --animation-loop: infinite; /* Perfect continuous loop */
+        --animation-direction: normal; /* Draw direction */
+      }
+
+      /* The textured dashed line - rendered statically but revealed dynamically */
+      .dashed-path {
+        fill: none;
+        stroke: var(--primary-color);
+        stroke-width: var(--stroke-width);
+        stroke-dasharray: var(--dash-pattern);
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        mask: url(#draw-mask); /* Links to the animated white stroke */
+      }
+
+      /* Solid arrowhead styling */
+      .arrow-head {
+        fill: var(--primary-color);
+        transform-origin: 77px 85px; /* Centers the scale animation on the path tip */
+        animation-name: pop-head;
+        animation-duration: var(--animation-duration);
+        animation-timing-function: var(--curve);
+        animation-iteration-count: var(--animation-loop);
+        animation-direction: var(--animation-direction);
+      }
+
+      /* Invisible mask line that handles the seamless draw-in and erase-out offset */
+      .mask-line {
+        stroke-dasharray: 200; /* Covers the exact length of the bezier curve */
+        stroke-dashoffset: 200;
+        animation-name: draw-in-out;
+        animation-duration: var(--animation-duration);
+        animation-timing-function: var(--curve);
+        animation-iteration-count: var(--animation-loop);
+        animation-direction: var(--animation-direction);
+      }
+
+      /* Keyframes: Smooth sequence mapping for the mask to draw from tail to head, then reverse */
+      @keyframes draw-in-out {
+        0%, 5% { 
+          stroke-dashoffset: 200; 
+        }
+        40%, 60% { 
+          stroke-dashoffset: 0; 
+        }
+        95%, 100% { 
+          stroke-dashoffset: 200; 
+        }
+      }
+
+      /* Keyframes: Arrowhead snaps in seamlessly exactly as the drawing finishes */
+      @keyframes pop-head {
+        0%, 35% { 
+          transform: scale(0) rotate(-15deg); 
+          opacity: 0; 
+        }
+        42%, 58% { 
+          transform: scale(1) rotate(0deg); 
+          opacity: 1; 
+        }
+        65%, 100% { 
+          transform: scale(0) rotate(-15deg); 
+          opacity: 0; 
+        }
+      }
+    </style>
+  </defs>
+
+  <g>
+    <!-- Main swooping arrow body with dashed texture, drawn by the animated mask -->
+    <path class="dashed-path" d="M 25 15 C 15 50, 30 80, 50 80 C 65 80, 65 55, 50 55 C 35 55, 35 80, 75 85" />
+    
+    <!-- Solid arrowhead mapped to the exact termination point of the curve -->
+    <path class="arrow-head" d="M 72 77 L 85 88 L 71 91 Q 74 84 72 77 Z" />
+  </g>
+</svg>

@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <!-- Mask to sequentially reveal and hide the dashed line -->
+    <mask id="draw-mask" maskUnits="userSpaceOnUse">
+      <path class="mask-line" d="M 5 45 C 15 15, 30 25, 32 40 C 35 60, 55 60, 55 48 C 55 35, 35 35, 35 50 C 35 65, 55 75, 72 55" fill="none" stroke="white" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+    </mask>
+
+    <style>
+      /* Scoped Custom Variables for Dynamic Customization */
+      svg {
+        /* Palette */
+        --primary-color: #000000; /* Solid Black */
+        
+        /* Line and Texture Properties */
+        --stroke-width: 3.5px; /* Thickness of the dashed trail */
+        --dash-pattern: 6 7; /* Flight path dash rhythm */
+        
+        /* Animation Timing */
+        --animation-duration: 5.5s; /* Full sequence duration */
+        --curve: cubic-bezier(0.45, 0, 0.15, 1); /* Smooth cinematic easing */
+        --fly-curve: cubic-bezier(0.5, -0.3, 0.2, 1.2); /* Anticipation and swoosh */
+        --animation-loop: infinite; /* Continuous seamless loop */
+        --animation-direction: normal; /* Flight direction */
+      }
+
+      /* The static dashed line mapped to the animated mask */
+      .dashed-path {
+        fill: none;
+        stroke: var(--primary-color);
+        stroke-width: var(--stroke-width);
+        stroke-dasharray: var(--dash-pattern);
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        mask: url(#draw-mask); 
+      }
+
+      /* Airplane polygons inheriting color */
+      .plane-part {
+        fill: var(--primary-color);
+      }
+
+      /* Animated wrapper for the paper airplane */
+      .plane-wrapper {
+        transform-origin: 85px 55px; /* Center of the plane for scaling/rotation */
+        animation-name: plane-sequence;
+        animation-duration: var(--animation-duration);
+        animation-timing-function: var(--fly-curve);
+        animation-iteration-count: var(--animation-loop);
+        animation-direction: var(--animation-direction);
+      }
+
+      /* Invisible mask line that handles the seamless draw-in and erase-out */
+      .mask-line {
+        stroke-dasharray: 250; /* Covers the exact length of the bezier curve */
+        stroke-dashoffset: 250;
+        animation-name: draw-in-out;
+        animation-duration: var(--animation-duration);
+        animation-timing-function: var(--curve);
+        animation-iteration-count: var(--animation-loop);
+        animation-direction: var(--animation-direction);
+      }
+
+      /* Keyframes: Mask draws the line exactly to the plane, then sweeps away */
+      @keyframes draw-in-out {
+        0%, 5% { 
+          stroke-dashoffset: 250; 
+        }
+        38%, 58% { 
+          stroke-dashoffset: 0; /* Fully drawn precisely as the plane appears */
+        }
+        85%, 100% { 
+          stroke-dashoffset: -250; /* Erases forward following the plane's path */
+        }
+      }
+
+      /* Keyframes: Airplane pops in, pulls back (anticipation), and flies off */
+      @keyframes plane-sequence {
+        0%, 34% { 
+          transform: scale(0) translate(-15px, 10px) rotate(-15deg); 
+          opacity: 0; 
+        }
+        39% { 
+          transform: scale(1.1) translate(0px, 0px) rotate(5deg); 
+          opacity: 1; 
+        }
+        43% { 
+          transform: scale(1) translate(0px, 0px) rotate(0deg); 
+          opacity: 1; 
+        }
+        52% { 
+          transform: scale(0.95) translate(-4px, 4px) rotate(-4deg); /* Takeoff pullback */
+          opacity: 1; 
+        }
+        70%, 100% { 
+          transform: scale(1.3) translate(40px, -30px) rotate(25deg); /* Swoosh off-screen */
+          opacity: 0; 
+        }
+      }
+    </style>
+  </defs>
+
+  <!-- Flight Path -->
+  <path class="dashed-path" d="M 5 45 C 15 15, 30 25, 32 40 C 35 60, 55 60, 55 48 C 55 35, 35 35, 35 50 C 35 65, 55 75, 72 55" />
+  
+  <!-- Paper Airplane Wrapper -->
+  <g class="plane-wrapper">
+    <!-- Top Far Wing -->
+    <polygon class="plane-part" points="72,50 94,45 80,53" />
+    
+    <!-- Bottom Fuselage Fold -->
+    <polygon class="plane-part" points="72,51 79,54 77,61" />
+    
+    <!-- Main Near Wing -->
+    <polygon class="plane-part" points="78,55 94,46 86,62" />
+  </g>
+</svg>

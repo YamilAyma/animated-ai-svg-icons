@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <style>
+      /* Scoped custom variables readable by modern live customizers */
+      svg {
+        /* Dynamic Palette */
+        --primary-color: #5EAF24; /* Green Arrow Fill and Outline */
+        
+        /* Shape Properties */
+        --stroke-width: 6px; /* Thick stroke provides the rounded corners */
+        
+        /* Animation Timing */
+        --animation-duration: 2s; /* Speed of the sliding motion */
+        --curve: ease-in-out; /* Smooth acceleration and deceleration */
+        --animation-loop: infinite; /* Seamless continuous loop */
+        --animation-direction: normal; /* Motion direction */
+      }
+
+      /* Base styling to create the solid shape with soft rounded edges */
+      .arrow-shape {
+        fill: var(--primary-color);
+        stroke: var(--primary-color);
+        stroke-width: var(--stroke-width);
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        vector-effect: non-scaling-stroke;
+      }
+
+      /* Animated wrapper handling the lateral movement */
+      .animated-arrow {
+        transform-origin: 50px 50px;
+        animation-name: slide-right;
+        animation-duration: var(--animation-duration);
+        animation-timing-function: var(--curve);
+        animation-iteration-count: var(--animation-loop);
+        animation-direction: var(--animation-direction);
+      }
+
+      /* Keyframes for a perfect loop: moves right and seamlessly returns */
+      @keyframes slide-right {
+        0%, 100% {
+          transform: translateX(-5px);
+        }
+        50% {
+          transform: translateX(15px);
+        }
+      }
+    </style>
+  </defs>
+
+  <!-- Group wrapper applies the animation, keeping the shape coordinates clean -->
+  <g class="animated-arrow">
+    <!-- Arrow polygon mapped to allow movement without clipping the 100x100 viewBox -->
+    <polygon class="arrow-shape" points="15,35 45,35 45,15 80,50 45,85 45,65 15,65" />
+  </g>
+</svg>

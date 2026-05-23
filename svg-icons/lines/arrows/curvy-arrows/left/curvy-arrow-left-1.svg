@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <!-- SVG Filter to simulate the rough, hand-drawn chalk/crayon texture -->
+    <filter id="chalk-texture" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="3" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.5" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+
+    <style>
+      /* Scoped custom variables readable by modern live customizers */
+      svg {
+        /* Dynamic Palette */
+        --primary-color: #83A66A; /* Pale Crayon Green */
+        
+        /* Shape Properties */
+        --stroke-width: 5px; /* Thick textured stroke */
+        
+        /* Animation Timing */
+        --animation-duration: 4s; /* Full cycle speed */
+        --curve: ease-in-out; /* Smooth drawing acceleration */
+        --animation-loop: infinite; /* Seamless loop */
+        --animation-direction: normal; /* Handled inside keyframes for ping-pong effect */
+      }
+
+      /* Base line styling applying the texture filter */
+      .chalk-line {
+        fill: none;
+        stroke: var(--primary-color);
+        stroke-width: var(--stroke-width);
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        filter: url(#chalk-texture);
+        /* NOTE: vector-effect is intentionally omitted here to prevent dasharray bugs */
+      }
+
+      /* Animated Body Path */
+      .arrow-body {
+        stroke-dasharray: 150;
+        stroke-dashoffset: 150;
+        animation-name: draw-body;
+        animation-duration: var(--animation-duration);
+        animation-timing-function: var(--curve);
+        animation-iteration-count: var(--animation-loop);
+        animation-direction: var(--animation-direction);
+      }
+
+      /* Animated Arrowhead Wings */
+      .arrow-wing {
+        stroke-dasharray: 50;
+        stroke-dashoffset: 50;
+        animation-name: draw-wing;
+        animation-duration: var(--animation-duration);
+        animation-timing-function: var(--curve);
+        animation-iteration-count: var(--animation-loop);
+        animation-direction: var(--animation-direction);
+      }
+
+      /* Keyframes: Body draws from tail to head, then reverses back */
+      @keyframes draw-body {
+        0%, 10% { 
+          stroke-dashoffset: 150; 
+        }
+        45%, 55% { 
+          stroke-dashoffset: 0; 
+        }
+        90%, 100% { 
+          stroke-dashoffset: 150; 
+        }
+      }
+
+      /* Keyframes: Wings wait for body to reach the head, pop in, and retreat first */
+      @keyframes draw-wing {
+        0%, 35% { 
+          stroke-dashoffset: 50; 
+        }
+        45%, 55% { 
+          stroke-dashoffset: 0; 
+        }
+        65%, 100% { 
+          stroke-dashoffset: 50; 
+        }
+      }
+    </style>
+  </defs>
+
+  <!-- Group containing the arrow parts -->
+  <g>
+    <!-- Main swooping arrow body (Start at tail, curve to head) -->
+    <path class="chalk-line arrow-body" d="M 85,25 Q 50,70 20,50" />
+    
+    <!-- Top arrowhead wing -->
+    <path class="chalk-line arrow-wing" d="M 20,50 Q 28,42 38,36" />
+    
+    <!-- Bottom arrowhead wing -->
+    <path class="chalk-line arrow-wing" d="M 20,50 Q 25,62 32,68" />
+  </g>
+</svg>
