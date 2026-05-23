@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <style>
+      /* Scoped custom variables for easy external parsing and dynamic theming */
+      svg {
+        --primary-color: #1A1A1C; /* Main Zzz Outline Color */
+        --stroke-width: 5px; /* Stroke Thickness */
+        
+        /* Animation Timing */
+        --animation-duration: 4.5s; /* Full cycle duration for a single Z */
+        --curve: ease-in-out; /* Dreamy floating curve */
+        --animation-loop: infinite; /* Perpetual sleeping loop */
+        --animation-direction: normal; /* Forward play direction */
+      }
+
+      /* Base path style to maintain consistent stroke width during scale transforms */
+      .z-path {
+        fill: none;
+        stroke: var(--primary-color);
+        stroke-width: var(--stroke-width);
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        
+        /* Granular CSS animation property declarations */
+        animation-name: floatZ;
+        animation-duration: var(--animation-duration);
+        animation-timing-function: var(--curve);
+        animation-iteration-count: var(--animation-loop);
+        animation-direction: var(--animation-direction);
+      }
+
+      /* Individual element targeting with staggered negative delays to ensure the loop is running on initial load */
+      .z-small {
+        transform-origin: 26px 79px;
+        animation-delay: 0s;
+      }
+
+      .z-medium {
+        transform-origin: 50px 58px;
+        animation-delay: -3s; /* Equates to starting 1.5s after the small Z */
+      }
+
+      .z-large {
+        transform-origin: 77px 38px;
+        animation-delay: -1.5s; /* Equates to starting 3.0s after the small Z */
+      }
+
+      /* Fluid floating and fading keyframes using CSS variable bindings */
+      @keyframes floatZ {
+        0% {
+          opacity: 0;
+          transform: scale(0.6) translate(-3px, 8px) rotate(-6deg);
+          stroke: var(--primary-color);
+        }
+        20% {
+          opacity: 1;
+          transform: scale(1) translate(0px, 0px) rotate(0deg);
+        }
+        60% {
+          opacity: 1;
+          transform: scale(1.1) translate(5px, -12px) rotate(4deg);
+        }
+        100% {
+          opacity: 0;
+          transform: scale(1.2) translate(10px, -24px) rotate(8deg);
+          stroke: var(--primary-color);
+        }
+      }
+    </style>
+  </defs>
+
+  <!-- Smallest Z (Bottom Left) -->
+  <!-- Drawn with slight tilts to accurately match the original hand-drawn aesthetic -->
+  <path class="z-path z-small" d="M 18 74 L 31 72 L 21 86 L 35 84" />
+
+  <!-- Medium Z (Center) -->
+  <path class="z-path z-medium" d="M 40 52 L 56 49 L 44 67 L 61 64" />
+
+  <!-- Largest Z (Top Right) -->
+  <path class="z-path z-large" d="M 64 28 L 86 24 L 67 52 L 91 48" />
+
+</svg>
