@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <style>
+      /* Scoped custom variables */
+      svg {
+        --stroke-color: #8f48beff; 
+        --orange-dark:  #c199f5ff; 
+        --orange-light: #c57feeff; 
+        --peach-pink:   #693ca5ff; 
+        --animation-duration: 8s; /* Base Duration */
+        --curve: ease-in-out; /* Easing Curve */
+        --animation-loop: infinite; /* Loop Count */
+      }
+      
+      /* Dynamic fall animations mapped to the variables */
+      .flower-stream-1 { 
+        animation-name: float-fall-1;
+        animation-duration: var(--animation-duration);
+        animation-timing-function: var(--curve);
+        animation-iteration-count: var(--animation-loop);
+      }
+      
+      .flower-stream-2 { 
+        animation-name: float-fall-2;
+        animation-duration: calc(var(--animation-duration) * 1.125); /* 9s */
+        animation-timing-function: var(--curve);
+        animation-iteration-count: var(--animation-loop);
+      }
+      
+      .flower-stream-3 { 
+        animation-name: float-fall-3;
+        animation-duration: calc(var(--animation-duration) * 1.25); /* 10s */
+        animation-timing-function: var(--curve);
+        animation-iteration-count: var(--animation-loop);
+      }
+      
+      /* Accurate original coordinate keyframes */
+      @keyframes float-fall-1 {
+        0%   { transform: translate(180px, -100px) rotate(-15deg); }
+        33%  { transform: translate(220px, 100px)  rotate(25deg); }
+        66%  { transform: translate(160px, 280px)  rotate(-10deg); }
+        100% { transform: translate(200px, 500px)  rotate(20deg); }
+      }
+
+      @keyframes float-fall-2 {
+        0%   { transform: translate(80px, -100px)  rotate(10deg); }
+        35%  { transform: translate(50px, 120px)   rotate(-20deg); }
+        70%  { transform: translate(110px, 300px)  rotate(15deg); }
+        100% { transform: translate(70px, 500px)   rotate(-10deg); }
+      }
+
+      @keyframes float-fall-3 {
+        0%   { transform: translate(280px, -100px) rotate(-25deg); }
+        40%  { transform: translate(320px, 150px)  rotate(10deg); }
+        75%  { transform: translate(260px, 320px)  rotate(-15deg); }
+        100% { transform: translate(300px, 500px)  rotate(5deg); }
+      }
+    </style>
+    
+    <!-- Original flower paths -->
+    <g id="flower-top">
+      <path d="M0,-15 C15,-35 30,-25 20,-5 C40,0 40,25 15,15 C20,35 -5,40 -15,20 C-35,30 -40,5 -20,-5 C-40,-20 -20,-40 0,-15 Z" 
+            fill="var(--orange-dark)" stroke="var(--stroke-color)" stroke-width="8" stroke-linejoin="round" />
+      <circle cx="0" cy="5" r="8" fill="var(--stroke-color)" />
+    </g>
+
+    <g id="flower-left">
+      <path d="M0,-20 C20,-40 35,-15 15,-5 C40,-5 35,20 10,15 C20,40 -10,35 -15,15 C-40,20 -35,-5 -15,-5 C-35,-20 -20,-40 0,-20 Z" 
+            fill="var(--orange-light)" stroke="var(--stroke-color)" stroke-width="8" stroke-linejoin="round" />
+      <circle cx="0" cy="0" r="9" fill="var(--peach-pink)" />
+    </g>
+
+    <g id="flower-right">
+      <path d="M5,-25 C25,-35 40,-5 15,0 C35,10 25,35 5,20 C-5,40 -30,25 -15,5 C-35,-5 -20,-30 0,-15 Z" 
+            fill="var(--peach-pink)" stroke="var(--stroke-color)" stroke-width="8" stroke-linejoin="round" />
+      <circle cx="2" cy="0" r="8" fill="var(--orange-light)" />
+    </g>
+  </defs>
+
+  <!-- Scale transform by 0.25 to fit 400x400 canvas inside 100x100 viewBox perfectly -->
+  <g transform="scale(0.25)">
+    <use href="#flower-top" class="flower-stream-1" style="animation-delay: 0s;" />
+    <use href="#flower-top" class="flower-stream-1" style="animation-delay: -4s;" />
+
+    <use href="#flower-left" class="flower-stream-2" style="animation-delay: -2s;" />
+    <use href="#flower-left" class="flower-stream-2" style="animation-delay: -6.5s;" />
+
+    <use href="#flower-right" class="flower-stream-3" style="animation-delay: -1s;" />
+    <use href="#flower-right" class="flower-stream-3" style="animation-delay: -6s;" />
+  </g>
+</svg>

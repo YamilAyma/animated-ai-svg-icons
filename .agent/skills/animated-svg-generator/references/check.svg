@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <style>
+      /* Scoped custom variables for dynamic customization */
+      svg {
+        --primary-color: #6AC259; /* Circle and Checkmark Outline */
+        --stroke-width: 9px; /* Outline Thickness */
+        --animation-duration: 4s; /* Animation Speed */
+        --curve: ease-in-out; /* Easing Curve */
+        --animation-loop: infinite; /* Loop Count */
+        --animation-direction: normal; /* Play Direction */
+      }
+
+      /* Base styling with variables */
+      .stroke-style {
+        fill: none;
+        stroke: var(--primary-color);
+        stroke-width: var(--stroke-width);
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        transform-origin: 50px 50px; /* Transform origin at center for robust editing */
+      }
+
+      /* Animated components using granular CSS animation declarations */
+      .circle {
+        stroke-dasharray: 210;
+        stroke-dashoffset: 210;
+        animation-name: drawCircle;
+        animation-duration: var(--animation-duration);
+        animation-timing-function: var(--curve);
+        animation-iteration-count: var(--animation-loop);
+        animation-direction: var(--animation-direction);
+      }
+
+      .check {
+        stroke-dasharray: 100;
+        stroke-dashoffset: 100;
+        animation-name: drawCheck;
+        animation-duration: var(--animation-duration);
+        animation-timing-function: var(--curve);
+        animation-iteration-count: var(--animation-loop);
+        animation-direction: var(--animation-direction);
+      }
+
+      /* Perfect loop keyframes for seamless draw-in and erase-out transitions */
+      @keyframes drawCircle {
+        0% { stroke-dashoffset: 210; animation-timing-function: ease-in-out; }
+        25% { stroke-dashoffset: 0; }
+        75% { stroke-dashoffset: 0; animation-timing-function: ease-in-out; }
+        100% { stroke-dashoffset: 210; }
+      }
+
+      @keyframes drawCheck {
+        0%, 15% { stroke-dashoffset: 100; animation-timing-function: ease-in-out; }
+        40% { stroke-dashoffset: 0; }
+        60% { stroke-dashoffset: 0; animation-timing-function: ease-in-out; }
+        85%, 100% { stroke-dashoffset: 100; }
+      }
+    </style>
+  </defs>
+
+  <!-- Complete incomplete circle -->
+  <path class="stroke-style circle" 
+        d="M 82.8 38.0 A 35 35 0 1 1 62.0 17.1" />
+
+  <!-- Perfect negative-spaced checkmark -->
+  <path class="stroke-style check" 
+        d="M 28 52 L 45 68 L 78 22" />
+</svg>

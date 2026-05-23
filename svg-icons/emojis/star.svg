@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <!-- Standardized Star base points scaled to 100x100 box -->
+    <polygon id="star-base" points="50,17.5 61.6,34 80.85,40.25 69,56 68.85,76 50,70 31.15,76 31,56 19.15,40.25 38.4,34" />
+    
+    <style>
+      /* Scoped custom variables for dynamic customization */
+      svg {
+        --primary-color: #F08B1F; /* Main Star Body */
+        --secondary-color: #FFD919; /* Golden Accent Glow */
+        --color-1: #8E3E1A; /* Dark Outline Border */
+        --stroke-width-thick: 13px; /* Thick outline thickness */
+        --stroke-width-inner: 7px; /* Inner border thickness */
+        --stroke-width-glow: 4px; /* Golden face stroke width */
+        --animation-duration: 3.5s; /* Animation Speed */
+        --curve: ease-in-out; /* Easing Curve */
+        --animation-loop: infinite; /* Loop Count */
+        --animation-direction: normal; /* Play Direction */
+      }
+
+      /* Animated wrapper container with precise center */
+      .star-wrapper {
+        transform-origin: 50px 50px; 
+        animation-name: pop-loop;
+        animation-duration: var(--animation-duration);
+        animation-timing-function: var(--curve);
+        animation-iteration-count: var(--animation-loop);
+        animation-direction: var(--animation-direction);
+      }
+
+      /* Pop bouncy entrance keyframes */
+      @keyframes pop-loop {
+        0% { 
+          transform: scale(0); 
+          animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); 
+        }
+        15% { 
+          transform: scale(1); 
+          animation-timing-function: ease-in-out;
+        }
+        80% { 
+          transform: scale(1); 
+          animation-timing-function: cubic-bezier(0.36, 0, 0.66, -0.56); 
+        }
+        95%, 100% { 
+          transform: scale(0); 
+        }
+      }
+    </style>
+  </defs>
+
+  <g class="star-wrapper">
+    <!-- 1. Dark outer border (Brown) -->
+    <use href="#star-base" fill="var(--color-1)" stroke="var(--color-1)" stroke-width="var(--stroke-width-thick)" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke" />
+
+    <!-- 2. Base shadow body (Dark Orange) -->
+    <use href="#star-base" fill="var(--primary-color)" stroke="var(--primary-color)" stroke-width="var(--stroke-width-inner)" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke" />
+
+    <!-- 3. Inner texture / Main glow (Yellow) -->
+    <path d="M 38.4,34
+             L 50,17.5
+             L 61.6,34
+             L 80.85,40.25
+             Q 67.5,57.5 52.5,57.5
+             Q 40,55 38.4,34 Z" 
+          fill="var(--secondary-color)" stroke="var(--secondary-color)" stroke-width="var(--stroke-width-glow)" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke" />
+
+    <!-- 4. Large specular reflection (White oval) -->
+    <ellipse cx="61.5" cy="40" rx="6.5" ry="3.5" transform="rotate(-8 61.5 40)" fill="#FFFFFF" />
+
+    <!-- 5. Small specular reflection (White circle) -->
+    <circle cx="73" cy="38.5" r="2" fill="#FFFFFF" />
+  </g>
+</svg>

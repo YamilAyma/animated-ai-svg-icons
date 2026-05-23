@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <!-- Scaled star shape (divided by 3) -->
+    <polygon id="star-shape" 
+             points="0,-15 4,-4.7 15,-4.7 6,2 9.3,12.7 0,6 -9.3,12.7 -6,2 -15,-4.7 -4,-4.7" 
+             fill="var(--primary-color)" 
+             stroke="var(--primary-color)" 
+             stroke-width="var(--stroke-width)" 
+             stroke-linejoin="round"
+             vector-effect="non-scaling-stroke" />
+
+    <style>
+      /* Scoped custom variables */
+      svg {
+        --primary-color: #B2CEE5; /* Star Color */
+        --stroke-width: 5.3px; /* Border Outline */
+        --animation-duration: 4s; /* Animation Speed */
+        --curve: ease-in-out; /* Flow Timing */
+        --animation-loop: infinite; /* Loop Count */
+        --animation-direction: normal; /* Play Direction */
+      }
+
+      /* Granular property animations */
+      .falling-star {
+        animation-name: shoot-and-float;
+        animation-duration: var(--animation-duration);
+        animation-timing-function: var(--curve);
+        animation-iteration-count: var(--animation-loop);
+        animation-direction: var(--animation-direction);
+      }
+
+      /* Stagger delays */
+      .delay-main  { animation-delay: 0s; }
+      .delay-small { animation-delay: 0.15s; }
+      .delay-med   { animation-delay: 0.3s; }
+
+      /* Bouncy shooting keyframes (divided by 3) */
+      @keyframes shoot-and-float {
+        0% {
+          transform: translate(83.3px, -83.3px) scale(0.3) rotate(90deg);
+          opacity: 0;
+          animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        25% {
+          transform: translate(0px, 0px) scale(1) rotate(0deg);
+          opacity: 1;
+          animation-timing-function: ease-in-out;
+        }
+        75% {
+          transform: translate(-2.7px, 4px) scale(1) rotate(-8deg);
+          opacity: 1;
+          animation-timing-function: ease-in;
+        }
+        90%, 100% {
+          transform: translate(-5px, 6.7px) scale(0) rotate(-15deg);
+          opacity: 0;
+        }
+      }
+    </style>
+  </defs>
+
+  <!-- Scaled group transforms (divided by 3) -->
+  <g transform="translate(40, 50) rotate(-15) scale(1.1)">
+    <g class="falling-star delay-main">
+      <use href="#star-shape" />
+    </g>
+  </g>
+
+  <g transform="translate(20, 20) rotate(5) scale(0.35)">
+    <g class="falling-star delay-small">
+      <use href="#star-shape" />
+    </g>
+  </g>
+
+  <g transform="translate(66.7, 70) rotate(10) scale(0.6)">
+    <g class="falling-star delay-med">
+      <use href="#star-shape" />
+    </g>
+  </g>
+</svg>

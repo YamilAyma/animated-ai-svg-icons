@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <!-- Scaled geometric chevron (divided by 2.4) -->
+    <polygon id="chevron" points="0,27.1 12.5,27.1 29.2,50 12.5,72.9 0,72.9 16.7,50" />
+    
+    <style>
+      /* Scoped custom variables */
+      svg {
+        --primary-color: #5D3893; /* Lead Dark Purple */
+        --secondary-color: #CBB8D9; /* Light Lilac Accents */
+        --color-1: #8970B1; /* Medium Purple Trans */
+        --animation-duration: 3.2s; /* Speed */
+        --curve: linear; /* Easing Curve */
+        --animation-loop: infinite; /* Loop Count */
+      }
+
+      /* Granular property animations */
+      .particle {
+        animation-name: conveyer-flow;
+        animation-duration: var(--animation-duration);
+        animation-timing-function: var(--curve);
+        animation-iteration-count: var(--animation-loop);
+        opacity: 0;
+      }
+
+      /* Milimetric delays for continuous flow loop */
+      .particle:nth-child(1) { animation-delay: 0s; }
+      .particle:nth-child(2) { animation-delay: -0.8s; }
+      .particle:nth-child(3) { animation-delay: -1.6s; }
+      .particle:nth-child(4) { animation-delay: -2.4s; }
+
+      /* Dynamic variables inside keyframes (divided by 2.4) */
+      @keyframes conveyer-flow {
+        0% {
+          transform: translateX(-5px);
+          fill: var(--secondary-color);
+          opacity: 0; 
+        }
+        25% {
+          transform: translateX(15px);
+          fill: var(--secondary-color); 
+          opacity: 1; 
+        }
+        50% {
+          transform: translateX(35px);
+          fill: var(--color-1); 
+          opacity: 1;
+        }
+        75% {
+          transform: translateX(55px);
+          fill: var(--primary-color); 
+          opacity: 1;
+        }
+        100% {
+          transform: translateX(75px);
+          fill: var(--primary-color);
+          opacity: 0; 
+        }
+      }
+    </style>
+  </defs>
+
+  <g>
+    <use href="#chevron" class="particle" />
+    <use href="#chevron" class="particle" />
+    <use href="#chevron" class="particle" />
+    <use href="#chevron" class="particle" />
+  </g>
+</svg>
