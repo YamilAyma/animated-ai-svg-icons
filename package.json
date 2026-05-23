@@ -1,0 +1,21 @@
+{
+  "name": "animated-nice-icons",
+  "version": "1.0.0",
+  "description": "A curated collection of gorgeous, micro-animated SVG icons designed with AI",
+  "main": "index.js",
+  "scripts": {
+    "validate": "node scripts/validate-icons.js",
+    "showcase": "node scripts/update-readme.js",
+    "test": "npm run validate"
+  },
+  "keywords": [
+    "svg",
+    "animation",
+    "css-variables",
+    "micro-interactions",
+    "cute-design",
+    "ai-generated"
+  ],
+  "author": "Yamil Ayma",
+  "license": "MIT"
+}

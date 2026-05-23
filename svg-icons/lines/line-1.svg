@@ -20,6 +20,7 @@
       /* Scoped custom variables */
       svg {
         --primary-color: #81258F; /* Main Arrow Color */
+        --stroke-width: 3.8px; /* Outline Thickness */
         --animation-duration: 4.5s; /* Animation Speed */
         --curve: cubic-bezier(0.4, 0.0, 0.2, 1); /* Transition Curve */
         --animation-loop: infinite; /* Loop Iteration */

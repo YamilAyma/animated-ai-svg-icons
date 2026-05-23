@@ -45,7 +45,6 @@ Welcome to the live gallery! Below is the grid of all currently available animat
 Lovely animated expressions, alerts, and badges with spring-bouncing mechanics and hand-drawn outline aesthetics.
 
 <!-- EMOJIS_TABLE_START -->
-
 <table>
   <tr>
     <td align="center" width="250" style="padding: 20px; border: 1px solid #f0f0f0;">
@@ -75,7 +74,6 @@ Lovely animated expressions, alerts, and badges with spring-bouncing mechanics a
 Beautiful drawn-in and erased-out line animations simulating chalk, crayon, or brush gestures with high organic texture.
 
 <!-- LINES_TABLE_START -->
-
 <table>
   <tr>
     <td align="center" width="250" style="padding: 20px; border: 1px solid #f0f0f0;">
@@ -100,7 +98,6 @@ Beautiful drawn-in and erased-out line animations simulating chalk, crayon, or b
 Magical bursts, sunbursts, falling stars, and cascading elements to add premium micro-interactions to your UI.
 
 <!-- PARTICLES_TABLE_START -->
-
 <table>
   <tr>
     <td align="center" width="250" style="padding: 20px; border: 1px solid #f0f0f0;">

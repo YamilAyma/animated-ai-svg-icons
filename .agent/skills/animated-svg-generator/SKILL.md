@@ -156,6 +156,19 @@ When generating new animated SVGs, always model the styling structure after this
 
 ---
 
-## 📚 Reference Assets
+## 📚 Reference Assets & Validation
 For a complete, real-world verified example of the parameterization and motion design patterns, refer to:
 *   [check.svg](file:///c:/Users/yamilayma/Desktop/animated-nice-icons/.agent/skills/animated-svg-generator/references/check.svg) (Draw-in and erase-out path animations utilizing CSS variables and standardized sizing).
+*   [validate-icons.js](file:///c:/Users/yamilayma/Desktop/animated-nice-icons/.agent/skills/animated-svg-generator/scripts/validate-icons.js) (An automated, directory-agnostic validation engine script to ensure compliance with this skill's specifications).
+
+### 🔍 How to Run the Validator
+Any AI or developer utilizing this skill can run the validation script to scan their SVGs recursively. 
+Specify the directory as an argument:
+```bash
+node .agent/skills/animated-svg-generator/scripts/validate-icons.js [path/to/svg/folder]
+```
+If no argument is passed, it recursively scans the current working directory:
+```bash
+node .agent/skills/animated-svg-generator/scripts/validate-icons.js
+```
+

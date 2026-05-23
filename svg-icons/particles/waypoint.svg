@@ -9,9 +9,11 @@
         --primary-color: #5D3893; /* Lead Dark Purple */
         --secondary-color: #CBB8D9; /* Light Lilac Accents */
         --color-1: #8970B1; /* Medium Purple Trans */
+        --stroke-width: 0px; /* Outline Thickness (Unused) */
         --animation-duration: 3.2s; /* Speed */
         --curve: linear; /* Easing Curve */
         --animation-loop: infinite; /* Loop Count */
+        --animation-direction: normal; /* Play Direction */
       }
 
       /* Granular property animations */
@@ -20,6 +22,7 @@
         animation-duration: var(--animation-duration);
         animation-timing-function: var(--curve);
         animation-iteration-count: var(--animation-loop);
+        animation-direction: var(--animation-direction);
         opacity: 0;
       }
 

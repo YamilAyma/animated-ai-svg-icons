@@ -4,6 +4,7 @@
       /* Scoped custom variables */
       svg {
         --primary-color: #FF9824; /* Spark Accent Color */
+        --stroke-width: 0px; /* Outline Thickness (Unused) */
         --animation-duration: 3s; /* Animation Speed */
         --curve: ease-in-out; /* Easing Curve */
         --animation-loop: infinite; /* Loop Count */
