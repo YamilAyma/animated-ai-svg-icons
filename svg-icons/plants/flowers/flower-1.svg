@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <style>
+      /* Scoped custom variables for dynamic customization */
+      svg {
+        --primary-color: #5E4D44; /* Dark brownish-grey outline */
+        --flower-color: #FFFFFF; /* Crisp white petals */
+        --center-color: #F2CD60; /* Soft gold/yellow center */
+        --leaf-color: #C5D79B; /* Pastel matcha green */
+        
+        --stroke-width: 5px; /* Thick, cute hand-drawn outline */
+        
+        /* Animation Timing Settings - Perfect Slow Motion Loop */
+        --animation-duration: 7s; /* Long, smooth cycle */
+        --curve: ease-in-out; /* Gentle organic easing */
+        --animation-loop: infinite; 
+        --animation-direction: normal; 
+      }
+
+      /* Base styling for all shapes */
+      .draw-outline {
+        stroke: var(--primary-color);
+        stroke-width: var(--stroke-width);
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        vector-effect: non-scaling-stroke;
+      }
+
+      /* Shape fills */
+      .fill-flower { fill: var(--flower-color); }
+      .fill-center { fill: var(--center-color); }
+      .fill-leaf { fill: var(--leaf-color); }
+
+      /* 
+        All elements share the exact same transform origin (the core of the flower).
+        This ensures perfectly anchored rotations.
+      */
+      .flower-head, .leaf-top, .leaf-bottom {
+        transform-origin: 38px 50px; 
+        animation-duration: var(--animation-duration);
+        animation-timing-function: var(--curve);
+        animation-iteration-count: var(--animation-loop);
+        animation-direction: var(--animation-direction);
+      }
+
+      /* Explicit animation bindings */
+      .flower-head {
+        animation-name: gentle-rocking;
+      }
+
+      .leaf-top {
+        animation-name: leaf-top-wave;
+      }
+
+      .leaf-bottom {
+        animation-name: leaf-bottom-wave;
+      }
+
+      /* --- Keyframes --- */
+
+      /* 
+        The flower scales subtly and rocks back and forth to simulate 
+        soft, slow-motion breathing in the wind.
+      */
+      @keyframes gentle-rocking {
+        0%, 100% {
+          transform: rotate(-4deg) scale(0.98);
+        }
+        50% {
+          transform: rotate(4deg) scale(1.02);
+        }
+      }
+
+      /* 
+        The leaves follow slightly offset, organic rotation paths to 
+        create a layered, parallax motion feel without breaking the anchor.
+      */
+      @keyframes leaf-top-wave {
+        0%, 100% { transform: rotate(0deg); }
+        35% { transform: rotate(5deg); }
+        75% { transform: rotate(-3deg); }
+      }
+
+      @keyframes leaf-bottom-wave {
+        0%, 100% { transform: rotate(0deg); }
+        45% { transform: rotate(-6deg); }
+        85% { transform: rotate(2deg); }
+      }
+    </style>
+  </defs>
+
+  <!-- Bottom Right Leaf Group (Rendered farthest back) -->
+  <g class="leaf-bottom">
+    <!-- Leaf body curving outward and down -->
+    <path class="draw-outline fill-leaf" 
+          d="M 38 50 C 50 48, 80 58, 85 70 C 85 82, 55 88, 38 50 Z" />
+    <!-- Inner vein -->
+    <path class="draw-outline" fill="none" 
+          d="M 54 62 L 72 70" />
+  </g>
+
+  <!-- Top Right Leaf Group (Rendered behind the flower) -->
+  <g class="leaf-top">
+    <!-- Leaf body curving outward and up -->
+    <path class="draw-outline fill-leaf" 
+          d="M 38 50 C 50 15, 80 15, 85 26 C 88 38, 60 55, 38 50 Z" />
+    <!-- Inner vein -->
+    <path class="draw-outline" fill="none" 
+          d="M 54 36 L 70 28" />
+  </g>
+
+  <!-- Main Flower Head Group (Rendered in front, perfectly centered at 38,50) -->
+  <g class="flower-head">
+    
+    <!-- 
+      Continuous 6-petal path explicitly drawn to be beautifully symmetrical yet organic.
+      Coordinates are carefully plotted to loop seamlessly back to the start.
+    -->
+    <path class="draw-outline fill-flower" 
+          d="M 34,42 
+             C 26,22 50,22 42,42 
+             C 62,30 66,50 46,48 
+             C 62,66 50,78 42,58 
+             C 50,78 26,78 34,58 
+             C 14,66 10,50 30,48 
+             C 14,30 26,22 34,42 Z" />
+             
+    <!-- Yellow core circle resting directly in the center -->
+    <circle class="draw-outline fill-center" cx="38" cy="50" r="8" />
+    
+  </g>
+</svg>
