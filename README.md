@@ -25,6 +25,9 @@
   - [😀 Emojis](#-emojis)
   - [📈 Lines &amp; Trails](#-lines--trails)
   - [✨ Particles &amp; Sparkles](#-particles--sparkles)
+  - [🐾 Animals](#-animals)
+  - [🌱 Plants](#-plants)
+  - [🎒 Things](#-things)
 - [🚀 Key Features](#-key-features)
 - [💡 Practical Use Cases](#-practical-use-cases)
 - [🛠️ Integration Guide](#%EF%B8%8F-integration-guide)
@@ -48,6 +51,26 @@ Lovely animated expressions, alerts, and badges with spring-bouncing mechanics a
 <table>
   <tr>
     <td align="center" width="250" style="padding: 20px; border: 1px solid #f0f0f0;">
+      <img src="svg-icons/emojis/draw/anger/anger.svg" width="100" height="100" alt="anger.svg" /><br />
+      <br />
+      <strong>anger.svg</strong><br />
+      <a href="svg-icons/emojis/draw/anger/anger.svg" download>💾 Download SVG</a>
+    </td>
+    <td align="center" width="250" style="padding: 20px; border: 1px solid #f0f0f0;">
+      <img src="svg-icons/emojis/draw/atention/atention-1.svg" width="100" height="100" alt="atention-1.svg" /><br />
+      <br />
+      <strong>atention-1.svg</strong><br />
+      <a href="svg-icons/emojis/draw/atention/atention-1.svg" download>💾 Download SVG</a>
+    </td>
+    <td align="center" width="250" style="padding: 20px; border: 1px solid #f0f0f0;">
+      <img src="svg-icons/emojis/draw/atention/atention.svg" width="100" height="100" alt="atention.svg" /><br />
+      <br />
+      <strong>atention.svg</strong><br />
+      <a href="svg-icons/emojis/draw/atention/atention.svg" download>💾 Download SVG</a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="250" style="padding: 20px; border: 1px solid #f0f0f0;">
       <img src="svg-icons/emojis/check-1.svg" width="100" height="100" alt="check-1.svg" /><br />
       <br />
       <strong>check-1.svg</strong><br />
@@ -68,12 +91,17 @@ Lovely animated expressions, alerts, and badges with spring-bouncing mechanics a
   </tr>
   <tr>
     <td align="center" width="250" style="padding: 20px; border: 1px solid #f0f0f0;">
+      <img src="svg-icons/emojis/sleep.svg" width="100" height="100" alt="sleep.svg" /><br />
+      <br />
+      <strong>sleep.svg</strong><br />
+      <a href="svg-icons/emojis/sleep.svg" download>💾 Download SVG</a>
+    </td>
+    <td align="center" width="250" style="padding: 20px; border: 1px solid #f0f0f0;">
       <img src="svg-icons/emojis/star.svg" width="100" height="100" alt="star.svg" /><br />
       <br />
       <strong>star.svg</strong><br />
       <a href="svg-icons/emojis/star.svg" download>💾 Download SVG</a>
     </td>
-    <td align="center" width="250" style="padding: 20px; border: 1px solid #f0f0f0;"></td>
     <td align="center" width="250" style="padding: 20px; border: 1px solid #f0f0f0;"></td>
   </tr>
 </table>
@@ -156,6 +184,12 @@ Magical bursts, sunbursts, falling stars, and cascading elements to add premium 
   </tr>
   <tr>
     <td align="center" width="250" style="padding: 20px; border: 1px solid #f0f0f0;">
+      <img src="svg-icons/particles/sparkles/sparkles.svg" width="100" height="100" alt="sparkles.svg" /><br />
+      <br />
+      <strong>sparkles.svg</strong><br />
+      <a href="svg-icons/particles/sparkles/sparkles.svg" download>💾 Download SVG</a>
+    </td>
+    <td align="center" width="250" style="padding: 20px; border: 1px solid #f0f0f0;">
       <img src="svg-icons/particles/sparkles/stars.svg" width="100" height="100" alt="stars.svg" /><br />
       <br />
       <strong>stars.svg</strong><br />
@@ -167,15 +201,81 @@ Magical bursts, sunbursts, falling stars, and cascading elements to add premium 
       <strong>sunburst.svg</strong><br />
       <a href="svg-icons/particles/sunburst.svg" download>💾 Download SVG</a>
     </td>
+  </tr>
+  <tr>
     <td align="center" width="250" style="padding: 20px; border: 1px solid #f0f0f0;">
       <img src="svg-icons/particles/waypoint.svg" width="100" height="100" alt="waypoint.svg" /><br />
       <br />
       <strong>waypoint.svg</strong><br />
       <a href="svg-icons/particles/waypoint.svg" download>💾 Download SVG</a>
     </td>
+    <td align="center" width="250" style="padding: 20px; border: 1px solid #f0f0f0;"></td>
+    <td align="center" width="250" style="padding: 20px; border: 1px solid #f0f0f0;"></td>
   </tr>
 </table>
 <!-- PARTICLES_TABLE_END -->
+
+### 🐾 Animals
+
+Cute animated creatures, pets, and characters with organic tilting, peeking, and blinking animations.
+
+<!-- ANIMALS_TABLE_START -->
+<table>
+  <tr>
+    <td align="center" width="250" style="padding: 20px; border: 1px solid #f0f0f0;">
+      <img src="svg-icons/animals/cat/cat-1.svg" width="100" height="100" alt="cat-1.svg" /><br />
+      <br />
+      <strong>cat-1.svg</strong><br />
+      <a href="svg-icons/animals/cat/cat-1.svg" download>💾 Download SVG</a>
+    </td>
+    <td align="center" width="250" style="padding: 20px; border: 1px solid #f0f0f0;">
+      <img src="svg-icons/animals/penguin/penguin-1.svg" width="100" height="100" alt="penguin-1.svg" /><br />
+      <br />
+      <strong>penguin-1.svg</strong><br />
+      <a href="svg-icons/animals/penguin/penguin-1.svg" download>💾 Download SVG</a>
+    </td>
+    <td align="center" width="250" style="padding: 20px; border: 1px solid #f0f0f0;"></td>
+  </tr>
+</table>
+<!-- ANIMALS_TABLE_END -->
+
+### 🌱 Plants
+
+Beautiful animated flowers, leaves, and vegetation with gentle rocking and wind-swaying effects.
+
+<!-- PLANTS_TABLE_START -->
+<table>
+  <tr>
+    <td align="center" width="250" style="padding: 20px; border: 1px solid #f0f0f0;">
+      <img src="svg-icons/plants/flowers/flower-1.svg" width="100" height="100" alt="flower-1.svg" /><br />
+      <br />
+      <strong>flower-1.svg</strong><br />
+      <a href="svg-icons/plants/flowers/flower-1.svg" download>💾 Download SVG</a>
+    </td>
+    <td align="center" width="250" style="padding: 20px; border: 1px solid #f0f0f0;"></td>
+    <td align="center" width="250" style="padding: 20px; border: 1px solid #f0f0f0;"></td>
+  </tr>
+</table>
+<!-- PLANTS_TABLE_END -->
+
+### 🎒 Things
+
+Animated office objects, tools, and everyday items with bouncy, attention-grabbing micro-movements.
+
+<!-- THINGS_TABLE_START -->
+<table>
+  <tr>
+    <td align="center" width="250" style="padding: 20px; border: 1px solid #f0f0f0;">
+      <img src="svg-icons/things/office/tack.svg" width="100" height="100" alt="tack.svg" /><br />
+      <br />
+      <strong>tack.svg</strong><br />
+      <a href="svg-icons/things/office/tack.svg" download>💾 Download SVG</a>
+    </td>
+    <td align="center" width="250" style="padding: 20px; border: 1px solid #f0f0f0;"></td>
+    <td align="center" width="250" style="padding: 20px; border: 1px solid #f0f0f0;"></td>
+  </tr>
+</table>
+<!-- THINGS_TABLE_END -->
 
 ---
 
