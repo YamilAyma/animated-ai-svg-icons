@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <style>
+      /* Scoped variables for granular structural control */
+      svg {
+        --primary-color: #36210A; /* Outline Contour */
+        --accent-color: #F8D210; /* Inner Fill */
+        --stroke-width: 4px; /* Outline Thickness */
+        
+        /* Timing properties */
+        --animation-duration: 2s; /* Total Loop Duration */
+        --curve: linear; /* Easing curve for stepped sequence */
+        --animation-loop: infinite; /* Play Iteration */
+        --animation-direction: normal; /* Play Direction */
+      }
+
+      /* Base geometry stylings */
+      .wedge-shape {
+        fill: var(--accent-color);
+        stroke: var(--primary-color);
+        stroke-width: var(--stroke-width);
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        
+        /* Central coordinate mapping for outward projection */
+        transform-origin: 20px 80px; 
+        
+        /* Linear timing forces reliance on explicit hard keyframe boundaries below */
+        animation-duration: var(--animation-duration);
+        animation-timing-function: var(--curve); 
+        animation-iteration-count: var(--animation-loop);
+        animation-direction: var(--animation-direction);
+      }
+
+      /* Layer separation for staggered sequence initialization */
+      .layer-primary {
+        animation-name: stepped-sequence-primary;
+      }
+
+      .layer-secondary {
+        animation-name: stepped-sequence-secondary;
+      }
+
+      /* 
+        Explicit fractional percentages (0.01% delta) enforce instant 
+        value jumps to achieve a strict stepped/frame-based render.
+      */
+      
+      @keyframes stepped-sequence-primary {
+        0%, 9.99% { opacity: 0; transform: scale(0.5); }
+        10%, 14.99% { opacity: 1; transform: scale(1.1); }
+        15%, 84.99% { opacity: 1; transform: scale(1); }
+        85%, 100% { opacity: 0; transform: scale(1); }
+      }
+
+      @keyframes stepped-sequence-secondary {
+        0%, 14.99% { opacity: 0; transform: scale(0.5); }
+        15%, 19.99% { opacity: 1; transform: scale(1.1); }
+        20%, 84.99% { opacity: 1; transform: scale(1); }
+        85%, 100% { opacity: 0; transform: scale(1); }
+      }
+    </style>
+  </defs>
+
+  <!-- Group handling the collective visual array -->
+  <g class="impact-burst-group">
+    
+    <!-- Top-left minor element -->
+    <polygon class="wedge-shape layer-secondary" 
+             points="23,26 33,24 36,6 25,6" />
+             
+    <!-- Top major primary element -->
+    <polygon class="wedge-shape layer-primary" 
+             points="39,35 49,38 75,8 59,2" />
+             
+    <!-- Mid-right minor element -->
+    <polygon class="wedge-shape layer-secondary" 
+             points="54,51 71,46 70,43 54,46" />
+             
+    <!-- Bottom-right major primary element -->
+    <polygon class="wedge-shape layer-primary" 
+             points="56,66 93,73 90,59 56,61" />
+             
+    <!-- Bottom minor element -->
+    <polygon class="wedge-shape layer-secondary" 
+             points="51,83 61,89 64,78 54,76" />
+             
+  </g>
+</svg>
